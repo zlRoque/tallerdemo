@@ -1,0 +1,19 @@
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+ion-button {
+    flex: 1;
+    font-size: smaller;
+    max-width: 127px;
+}
+
+ion-item img {
+    width: 200%;
+    height: auto;
+    max-width: 170px; /* Define el ancho máximo deseado para las imágenes */
+    max-height: 170px; /* Define la altura máxima deseada para las imágenes */
+  }

@@ -1,0 +1,46 @@
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+@import './theme/variables.scss';
+
+/* Aplicar colores personalizados */
+ion-content, ion-header, ion-footer, ion-title {
+    --background: var(--ion-color-light);
+    color: var(--ion-color-light-contrast);
+}
+
+ion-item, ion-card {
+    --background: var(--ion-color-secondary);
+    color: var(--ion-color-secondary-contrast);
+}
+
+ion-button {
+    --background: var(--ion-color-tertiary);
+    color: var(--ion-color-tertiary-contrast);
+}
+
+ion-label {
+    color: white;
+}
+
+/* Ajustar el color de fondo y texto del ítem seleccionado */
+ion-item.selected {
+    --background: var(--ion-color-primary);
+    color: black;
+}
+
+ion-select::part(text) {
+    color: white;
+}

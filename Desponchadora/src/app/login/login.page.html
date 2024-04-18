@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-title class="ion-text-center">INICIAR SESIÓN</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/registro-login']">REGISTRARSE</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding ion-text-center">
+
+
+  <div class="ion-text-center ion-padding">
+    <form [formGroup]="FormularioInicio" class="ion-text-left">
+      <ion-item lines="none">
+        <ion-label position="floating">Correo Electrónico</ion-label>
+        <ion-input type="email" formControlName="CorreoElectronico" class="ion-text-center"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="{{ mostrarPassword1 ? 'text' : 'password' }}" formControlName="Password" required
+          class="ion-text-center"></ion-input>
+        <ion-icon name="{{ mostrarPassword1 ? 'eye-off' : 'eye' }}" slot="end"
+          (click)="toggleMostrarPassword1()"></ion-icon>
+      </ion-item>
+      <ion-button expand="block" (click)="login()">Ingresar</ion-button>
+    </form>
+  </div>
+  <div class="ion-text-center ion-margin">
+    <img src="/assets/icon/icon-256.png" class="logo-image" />
+  </div>
+
+
+</ion-content>

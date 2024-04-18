@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-title>REGISTRAR SESIÓN</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/login']">INICIAR SESIÓN</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Registro {{FormularioRegistro.value.TipoUsuario}} </ion-card-title>
+      <ion-card-content>
+        <form [formGroup]="FormularioRegistro">
+          <ion-button (click)="Abrir(true)">Seleccionar tipo de cuenta</ion-button>
+
+          <ion-picker [isOpen]="isPickerOpen" [columns]="Columnas" [buttons]="BotonesPicker"
+            (didDismiss)="Abrir(false)"></ion-picker>
+        </form>
+      </ion-card-content>
+    </ion-card-header>
+
+    <ion-card-content *ngIf="FormularioRegistro.get('TipoUsuario')?.value">
+      <form [formGroup]="FormularioRegistro">
+        <ion-item *ngIf="FormularioRegistro.value.TipoUsuario === 'Cliente'">
+          <ion-label position="floating">Nombre Cliente</ion-label>
+          <ion-input formControlName="Nombre"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="FormularioRegistro.value.TipoUsuario === 'Empresa'">
+          <ion-label position="floating">Nombre Empresa</ion-label>
+          <ion-input formControlName="Nombre"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="FormularioRegistro.value.TipoUsuario === 'Cliente'">
+          <ion-label position="floating">Apellido</ion-label>
+          <ion-input formControlName="Apellido"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Correo Electronico</ion-label>
+          <ion-input formControlName="CorreoElectronico" type="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input formControlName="Password" [type]="mostrarPassword1 ? 'text' : 'password'"></ion-input>
+          <ion-icon name="{{ mostrarPassword1 ? 'eye-off' : 'eye' }}" slot="end"
+            (click)="toggleMostrarPassword1()"></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Contraseña Validar</ion-label>
+          <ion-input formControlName="ConfirmacionPassword" [type]="mostrarPassword2 ? 'text' : 'password'"></ion-input>
+          <ion-icon name="{{ mostrarPassword2 ? 'eye-off' : 'eye' }}" slot="end"
+            (click)="toggleMostrarPassword2()"></ion-icon>
+        </ion-item>
+        <ion-item *ngIf="FormularioRegistro.value.TipoUsuario === 'Cliente'">
+          <ion-label position="stack">Fecha de nacimiento</ion-label>
+          <ion-datetime-button datetime="datetime"></ion-datetime-button>
+          <ion-modal [keepContentsMounted]="true">
+            <ng-template>
+              <ion-datetime id="datetime" presentation="date" [showDefaultButtons]="true"
+                (ionChange)="onFechaNacimientoChange($event)"></ion-datetime>
+            </ng-template>
+          </ion-modal>
+        </ion-item>
+      </form>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" color="primary" (click)="Registrar()"> <ion-icon name="save"></ion-icon>
+            Aceptar</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="block" color="danger" (click)=" Cancelar()"><ion-icon name="ban-outline">
+            </ion-icon>Cancelar</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+
+  </ion-card>
+</ion-content>

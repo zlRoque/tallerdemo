@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>
+      TIENDA
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="addProduct()">AGREGAR</ion-button>
+      <ion-button (click)="loadProducts()">RECARGAR</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list lines="full">
+    <ion-item-sliding *ngFor="let product of products">
+      <ion-item (click)="showProductDetails(product)">
+        <ion-label>{{ product.Name }}</ion-label>
+        <img [src]="product.Image" alt="Product Image" style="width: auto; height: 117px;">
+      </ion-item>
+      <ion-item-options side="end">
+        
+        <ion-item-option color="warning" (click)="updateProduct(product)">
+          <ion-icon slot="icon-only" name="options"></ion-icon>
+        </ion-item-option>
+        <ion-item-option color="danger" (click)="deleteProduct(product)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

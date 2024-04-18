@@ -1,0 +1,13 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-title slot="start">MAPA</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="enableAddingMarker()">AGREGAR</ion-button>
+      <ion-button expand="full" (click)="saveMarker()" [disabled]="!addingMarker">GUARDAR</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="map"></div>
+</ion-content>

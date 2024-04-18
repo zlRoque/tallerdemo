@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-title>CARRITO</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-content padding>
+    <ion-grid>
+        <ion-col size="6" *ngFor="let producto of productos">
+          <ion-card>
+            <ion-img [src]="producto.Image" style="width: auto; height: auto;"></ion-img>
+            <ion-card-header>
+              <ion-card-subtitle>{{ producto.Name }}</ion-card-subtitle>
+              <ion-card-title>{{ producto.Details }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              Precio: {{ producto.Price }}
+            </ion-card-content>
+            <ion-button  expand="full"  (click)="removeFromCart(producto)">Eliminar</ion-button>
+          </ion-card>
+        </ion-col>
+      </ion-grid>
+  </ion-content>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "Desponchadora",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

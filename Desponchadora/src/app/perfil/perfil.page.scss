@@ -1,0 +1,19 @@
+.perfil-foto {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.content {
+    justify-content: center;
+    align-items: center;
+    max-width: 300px;
+    margin: auto;
+    padding: 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}

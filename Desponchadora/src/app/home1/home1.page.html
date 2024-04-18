@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-title slot="start">MAPA</ion-title>
+  </ion-toolbar>
+  
+</ion-header>
+
+
+<ion-content>
+  
+  <img src="assets/sintitulo2k.png" alt="Imagen Sintitulo" class="full-image" />
+
+
+  <div id="map" class="map-container"></div>
+
+  <!-- Lista de marcadores -->
+  <ion-list class="marker-list">
+    <ion-item *ngFor="let marker of markers" class="marker-item">
+      <ion-icon name="pin" slot="start" class="marker-icon"></ion-icon>
+      <ion-label>{{ marker.title }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
